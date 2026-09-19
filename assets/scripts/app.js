@@ -6,7 +6,7 @@ const terminal = document.querySelector("#terminal");
 console.log("whats in hellBox variable", helloBox);
 
 helloBtn.addEventListener("click", () => {
-  console.log("hellobx valueu", helloBox.value);
+  console.log("hellobx value", helloBox.value);
   // alert("hellodsfasdfsa!");
   userGreeting.textContent = "hi there, " + helloBox.value + "!";
 
