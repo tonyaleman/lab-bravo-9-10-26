@@ -1,29 +1,28 @@
-console.log("in signin.js");
+console.log("in signin dot js");
 
-const signinBtn = document.getElementById("#signin-btn"); 
-const pwdBox = document.getElementById("#pwd-box"); 
+const signinBtn = document.querySelector("#signin-btn");
+const pwdBox = document.querySelector("#pwd-box");
 const hardCodePwd = 'lasagna';
+//pwdBox.value = hardCodePwd; 
 
-// demo thing 
-// const inputBoxes = document.getElementById('input-boxes');
+signinBtn.addEventListener("click", function () {
+  console.log("pwd value: ", pwdBox.value);
 
-signinBtn.addEventListener("click", () => { 
+  const userPwd = pwdBox.value; 
 
-    console.log("pwd value: ", pwdBox.value);
+console.log('use pwd: ', userPwd);
+console.log('hard code pwd: ', hardCodePwd);
 
-    const userPwd = pwdBox.value;
+  if(userPwd == hardCodePwd){
+    console.log('signed in');
+    sessionStorage.setItem('signedIn', 'true');
+    // sessionStorage.setItem('signedIn', '');
+    window.location.href = "private.html"
+  }
+  else{
+    console.log('NOT signed in');
+    document.querySelector('#message').textContent = "nope. try again."
+    pwdBox.value = ''; 
+  }
 
-
-    if(userPwd === hardCodePwd) {
-        console.log("Signed in");
-        sessionStorage.setItem("signedIn", "true");
-        window.location.href = "private.html";
-    }
-    else {
-        console.log("Not signed in");
-        document.querySelector("#message").textContent = "Nope. Try again.";
-        pwdBox.value = "";
-    }
-
-
-})
+});
